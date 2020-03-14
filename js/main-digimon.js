@@ -19,8 +19,8 @@ const capturar = () => {
         if (bandera == false) {
           array.push(numero);
           bandera = true;
-          console.log(array);
-          console.log(array.length);
+          // console.log(array);
+          // console.log(array.length);
         } else if (bandera == true) {
           numero = Math.floor(Math.random() * (100 - 1) + 1);
           console.log(array.includes(numero));
@@ -30,7 +30,7 @@ const capturar = () => {
 
           array.push(numero);
         }
-        console.log(array);
+        // console.log(array);
 
 //Contenido a mostrar en pantalla
         contenido.innerHTML += `<tr id="${numero}"><td scope="row">${data[numero].name}</th><td>${data[numero].level}</td><td><a id="imagen" data-toggle="modal"
@@ -69,37 +69,32 @@ const capturar = () => {
         </div>
       </div>
     </div>
-  </div></td><td><button class="btn btn-danger btn-eliminar" id="boton${data[numero].id}" onclick="eliminar()"><i class="fas fa-trash-alt"></i></td></tr>`;
+  </div></td><td><button class="btn btn-danger btn-eliminar" id="boton${data[numero].id}"><i class="fas fa-trash-alt"></i></td></tr>`;
         contador++;
-        console.log(contador);
+        // console.log(contador);
       });
   } else {
     alert("No hay mas digimons por capturar!");
   }
+
 };
 
 //Funcion eliminar
 
-const eliminar = () => {
-  $(document).on("click", ".btn-eliminar", function() {
-    let row = $(this)
-      .parent()
-      .parent();
-    let id = parseInt(
-      $(this)
-        .parent()
-        .parent()
-        .attr("id")
-    );
-    let index = array.indexOf(id);
-    console.log(index);
-    array.splice(index, 1);
-    console.log(array);
-    $(row).addClass("hidden");
-    contador--;
-    console.log(contador);
-  });
-};
+   $(document).on("click", ".btn-eliminar", function() {
+  let row = $(this).parent().parent();
+
+  let id = parseInt($(this).parent().parent().attr("id"));
+  let index = array.indexOf(id);
+  // console.log(index);
+  array.splice(index, 1);
+  // console.log(array);
+  $(row).addClass("hidden");
+  contador--;
+ 
+});
+
+
 
 //Capturar eventos
 
