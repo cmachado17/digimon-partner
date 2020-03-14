@@ -6,10 +6,10 @@ const capturar = ()=>{
   .then(res => res.json())
   .then( data =>{
     let numero = Math.floor(Math.random()*(100-1)+1);
-    contenido.innerHTML = `<tr><th scope="row">${data[numero].name}</th><td>${data[numero].level}</td><td><a id="imagen" data-toggle="modal"
-    data-target="#exampleModal"><img src="${data[numero].img}" widht="100px" height="100px" class="rounded-circle"> <div
+    contenido.innerHTML += `<tr><th scope="row">${data[numero].name}</th><td>${data[numero].level}</td><td><a id="imagen" data-toggle="modal"
+    data-target="#exampleModal${data[numero].id}"><img src="${data[numero].img}" widht="100px" height="100px" class="rounded-circle"> <div
     class="modal fade"
-    id="exampleModal"
+    id="exampleModal${data[numero].id}"
     tabindex="-1"
     role="dialog"
     aria-labelledby="exampleModalLabel"
